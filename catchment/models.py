@@ -53,6 +53,10 @@ def daily_max(data):
 
 def daily_min(data):
     """Calculate the daily min of a 2d data array.
-    Index must be np.datetime64 compatible format."""
+    Index must be np.datetime64 compatible format.
+
+    :param data: 2D array
+    :returns: minimum of 2D array by day (array)
+    """
     return data.groupby(data.index.date).min()
 

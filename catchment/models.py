@@ -9,6 +9,29 @@ time across all sites.
 
 import pandas as pd
 import numpy as np
+from functools import reduce, wraps
+
+def num_data_above_threshold(data,site_id,threshold):
+    '''
+
+
+    '''
+    def count_above_threshold(a,b):
+        if b:
+            return a + 1
+        else:
+            return a
+
+    above_threshold = map(lambda x: x>threshold, data[site_id])
+    return reduce(count_above_threshold,above_threshold,0)
+def daily_above_threshold(data, site_id, threshold): -> bool
+    '''
+    data: Pandas dataframe with column named site_id
+    site_id: string column name 
+    threshold: numerical 
+    '''
+    return list(map(lambda x: x > threshold, data[site_id]))
+
 
 def data_normalise(data):
     max = np.array(np.max(data, axis=0))

@@ -8,6 +8,11 @@ time across all sites.
 """
 
 import pandas as pd
+import numpy as np
+
+def data_normalize(data):
+    max = np.array(np.max(data, axis=1))
+    return data / max[np.newaxis,:]
 
 def read_variable_from_csv(filename):
     """Reads a named variable from a CSV file, and returns a

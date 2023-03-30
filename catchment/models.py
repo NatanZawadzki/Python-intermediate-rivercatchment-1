@@ -60,3 +60,7 @@ def daily_min(data):
     """
     return data.groupby(data.index.date).min()
 
+def daily_sd(data):
+    """Calculate the daily total of a 2d data array.
+    Index must be np.datetime64 compatible format."""
+    return data.groupby(data.index.date).std()

@@ -16,3 +16,6 @@
 # Virtual Environments
 .venv/
 venv/
+
+#my scratch file
+scratch.py
